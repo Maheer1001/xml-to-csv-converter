@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<faculties>
+  <faculty>
+    <faculty>Faculty of Art, Design</faculty>
+    <building>B "59"</building>
+    <room>R&amp;D Lab</room>
+    <capacity>240</capacity>
+  </faculty>
+</faculties>

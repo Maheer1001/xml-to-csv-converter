@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<students>
+  <student>
+    <student_name>Ada Lovelace</student_name>
+    <student_id>100001</student_id>
+    <student_email>AL1Y24@example.ac.uk</student_email>
+    <programme>Computer Science</programme>
+    <year>1</year>
+    <address>12 Engine Street, Flat 3
+Marylebone, London NW1 1AA</address>
+    <contact>0123456789</contact>
+    <module_id>COMP1314</module_id>
+    <module_name>Data Management</module_name>
+    <module_leader>Charles Babbage</module_leader>
+    <lecturer1/>
+    <lecturer2/>
+    <faculty>Faculty of Engineering, Physical Sciences</faculty>
+    <building>B32</building>
+    <room>R1001</room>
+    <exam_mark/>
+    <coursework1>70</coursework1>
+    <coursework2>65</coursework2>
+    <coursework3>80</coursework3>
+  </student>
+  <student>
+    <student_name>Ada Lovelace</student_name>
+    <student_id>100001</student_id>
+    <student_email>AL1Y24@example.ac.uk</student_email>
+    <programme>Computer Science</programme>
+    <year>1</year>
+    <address>12 Engine Street, Flat 3
+Marylebone, London NW1 1AA</address>
+    <contact>0123456789</contact>
+    <module_id>COMP1201</module_id>
+    <module_name>Algorithms "and" Data Structures</module_name>
+    <module_leader>Grace Hopper</module_leader>
+    <lecturer1>Alan Turing</lecturer1>
+    <lecturer2>Edsger Dijkstra</lecturer2>
+    <faculty>Faculty of Engineering, Physical Sciences</faculty>
+    <building>B59</building>
+    <room>R3057</room>
+    <exam_mark>55</exam_mark>
+    <coursework1></coursework1>
+    <coursework2>40</coursework2>
+    <coursework3/>
+  </student>
+  <student>
+    <student_name>Brian Kernighan</student_name>
+    <student_id>100002</student_id>
+    <student_email>BK1Y24@example.ac.uk</student_email>
+    <programme>Software Engineering</programme>
+    <year>2</year>
+    <address>1 Bell Lane
+Murray Hill, NJ 07974</address>
+    <contact>0987654321</contact>
+    <module_id>COMP2207</module_id>
+    <module_name>Distributed Systems &amp; Networks</module_name>
+    <module_leader>Dennis Ritchie</module_leader>
+    <lecturer1>Ken Thompson</lecturer1>
+    <lecturer2/>
+    <faculty>Faculty of Engineering, Physical Sciences</faculty>
+    <building>B32</building>
+    <room>R1002</room>
+    <exam_mark>91</exam_mark>
+    <coursework1>88</coursework1>
+    <coursework2>77</coursework2>
+    <coursework3>99</coursework3>
+  </student>
+</students>
