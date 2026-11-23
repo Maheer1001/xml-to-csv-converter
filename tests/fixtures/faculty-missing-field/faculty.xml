@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<faculties>
+  <faculty>
+    <faculty>Faculty of Art</faculty>
+    <building>B59</building>
+    <room>R1000</room>
+    <capacity>240</capacity>
+  </faculty>
+  <faculty>
+    <faculty>Faculty of Law</faculty>
+    <building>B4</building>
+    <room></room>
+    <capacity>30</capacity>
+  </faculty>
+</faculties>
