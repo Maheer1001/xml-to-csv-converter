@@ -24,16 +24,27 @@ export LC_ALL=C.UTF-8
 
 The output file names are fixed: an input named exactly `students.xml` writes `students.csv`, and any other input is treated as faculty data and writes `faculty.csv`, both in the current folder. Running the commands above overwrites the committed CSVs with freshly generated copies.
 
-## Test
+## Testing
 
-The committed `students.csv`, `faculty.csv` and `students.txt` are the expected outputs. To check the scripts reproduce them without overwriting anything, run them in a temporary copy and compare (`--strip-trailing-cr` ignores the CRLF line endings Git may add on Windows checkouts):
+The test suite uses [bats-core](https://github.com/bats-core/bats-core). From this folder in Git Bash (or any Bash):
 
 ```bash
-tmp=$(mktemp -d)
-cp *.xml *.sh "$tmp"
-(cd "$tmp" && ./xml-to-csv.sh students.xml && ./xml-to-csv.sh faculty.xml && ./unique-names.sh students.csv students.txt)
-for f in students.csv faculty.csv students.txt; do diff -q --strip-trailing-cr "$f" "$tmp/$f" && echo "$f OK"; done
+./tests/run.sh
 ```
+
+If `bats` is not on your PATH, `run.sh` clones bats-core v1.11.1 into `tests/.bats-core/` (git-ignored, local to this repo) on first run, so the only prerequisites are the ones above plus `git`. Extra arguments go to bats, e.g. `./tests/run.sh --filter students`. Every test runs in its own temp directory, so the committed CSVs are never overwritten. GitHub Actions runs the same command on Ubuntu and Windows for every push to `main` and every pull request.
+
+What the suites prove:
+
+| File | What it checks |
+|---|---|
+| `tests/setup_check.bats` | The setup check. GNU `grep -P` works, the real scripts turn the bundled sample `tests/fixtures/students-basic/students.xml` into exactly `expected.csv`, and the full `students.xml` / `faculty.xml` regenerate the committed `students.csv`, `faculty.csv` and `students.txt`. If this passes, your toolchain is hooked up correctly. |
+| `tests/converter.bats` | `xml-to-csv.sh` on small fixtures: flat faculty records, 19-field student records with a two-line address, repeated records, self-closing and empty elements becoming `NULL`, commas, quotes, `&amp;` entities and CRLF input, attributes, empty input, malformed XML and a missing input file. |
+| `tests/unique_names.bats` | `unique-names.sh` sorts, de-duplicates and skips the header. |
+
+Tests whose names contain "limitation" record what the scripts currently do with input they were not designed for: commas inside faculty values are not escaped, an empty faculty field shifts the later columns, an attribute in the first record corrupts the header, and malformed XML or a missing file still exits 0. They pass today. If you fix one of these, update its test.
+
+Fixtures live in `tests/fixtures/<case>/`. Each has an input XML and, where useful, an `expected.csv`.
 
 ## Scripts
 
